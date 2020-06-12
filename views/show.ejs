@@ -1,0 +1,16 @@
+<h1>Show page</h1>
+<p> 
+    <%=det.owner.username%><br>
+    <%=det.age%><br>
+    <%=det.bloodtype%><br>
+    <% if(det.diabetic == false){ %> 
+    <p>Not Diabetic</p>
+    <%}else{%>
+        <p>diabetic</p>
+    <%}%>
+    <%= det.meddis%><br>
+    <%= det.height%><br>
+    <%= det.weight%><br>
+    <%= det.BMI%><br>
+</p>
+<hr>

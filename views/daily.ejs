@@ -1,0 +1,24 @@
+<script type="text/javascript">
+    var clicks1 = 0;
+    var clicks2 = 0;
+    function onClick1() {
+        clicks1 += 1;
+        document.getElementById("clicks1").innerHTML = clicks1;
+    };
+    function onClick2() {
+        clicks2 += 1;
+        document.getElementById("clicks2").innerHTML = clicks2;
+    };
+</script>
+
+<form action="/daily" method="POST">
+    <input type="date" name="date"><br>
+    <input type="text" name="BP" placeholder="BP"><br>
+    <input type="text" name="o2" placeholder="O2 saturation"><br>
+    <input type="text" name="temp" placeholder="temperature"><br>
+    <input type="time" name="sleepstart"><br>
+    <input type="time" name="sleepend"><br>
+    <label><button type="button" onClick="onClick1()">+1</button></label><br>
+        <p>Water: <a id="clicks1"></a></p>
+    <input type="submit">
+</form>
