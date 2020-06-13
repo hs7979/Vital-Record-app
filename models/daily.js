@@ -2,10 +2,12 @@ var mongoose = require("mongoose");
 
 var dailySchema = new mongoose.Schema({
     date:{type:Date,default:Date.now},
-    BP:String,
+    BP:{
+        Systole:String,
+        Diastole:String,
+        pulse:String
+    },
     o2:String,
-    water:String,
-    caffeine:String,
     glucose:String,
     temp:String,
     sleep:String,
