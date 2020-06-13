@@ -50,7 +50,13 @@ app.get("/show",isLoggedIn,function(req,res){
     });
 });
 app.get("/allshow",isLoggedIn,function(req,res){
-    res.send("success!!!")
+    daily.find({owner:{id:req.user._id,username:req.user.username}},function(err,dailydata){
+        if(err){
+            console.log(err);
+        }else{
+            res.render("allshow",{d:dailydata});
+        }
+    })
 })
 //DETAILS ROUTE
 app.get("/form",isLoggedIn,function(req,res){
@@ -102,7 +108,7 @@ app.post("/daily",isLoggedIn,function(req,res){
             username:req.user.username
         };
     
-    var day={_id:req.user._id,date:d,BP:bp,o2:o,glucose:g,temp:temp,sleep:hrs,owner:owner}
+    var day={date:d,BP:bp,o2:o,glucose:g,temp:temp,sleep:hrs,owner:owner}
     daily.create(day,function(err,daydata){
         if(err){
             console.log(err);
