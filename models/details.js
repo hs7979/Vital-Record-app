@@ -14,7 +14,13 @@ var detailsSchema = new mongoose.Schema({
             ref:"user"
         },
         username:String,
-    }
+    },
+    daily:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"daily"
+        }
+    ]
 });
 
 module.exports = mongoose.model("details",detailsSchema);

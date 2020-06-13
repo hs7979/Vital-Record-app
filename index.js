@@ -41,7 +41,7 @@ app.get("/",function(req,res){
 });
 //SHOW ROUTES
 app.get("/show",isLoggedIn,function(req,res){
-    details.findById(req.user._id,function(err,own){
+    details.findById(req.user._id).populate("daily").exec(function(err,own){
         if(err){
             console.log(err);
         }else{
@@ -49,15 +49,6 @@ app.get("/show",isLoggedIn,function(req,res){
         }
     });
 });
-app.get("/allshow",isLoggedIn,function(req,res){
-    daily.find({owner:{id:req.user._id,username:req.user.username}},function(err,dailydata){
-        if(err){
-            console.log(err);
-        }else{
-            res.render("allshow",{d:dailydata});
-        }
-    })
-})
 //DETAILS ROUTE
 app.get("/form",isLoggedIn,function(req,res){
     res.render("form");
@@ -74,9 +65,11 @@ app.post("/form",isLoggedIn,function(req,res){
             id:req.user._id,
             username:req.user.username
         };
-    if(diabetic == on)
+    if(diabetic == "1")
     {
         diabetic=true;
+    }else{
+        diabetic=false;
     }
     var d={_id:req.user._id,age:age,bloodtype:bloodtype,meddis:meddis,diabetic:diabetic,height:height,weight:weight,BMI:BMI,owner:owner};
     details.create(d,function(err,details){
@@ -109,11 +102,20 @@ app.post("/daily",isLoggedIn,function(req,res){
         };
     
     var day={date:d,BP:bp,o2:o,glucose:g,temp:temp,sleep:hrs,owner:owner}
-    daily.create(day,function(err,daydata){
+    details.findById(req.user._id,function(err,det){
         if(err){
             console.log(err);
         }else{
-            res.redirect("/allshow");
+            daily.create(day,function(err,DAY){
+                if(err){
+                    console.log(err);
+                }else{
+                    DAY.save();
+                    det.daily.push(DAY);
+                    det.save();
+                    res.redirect("/show");
+                }
+            })
         }
     })
 })
