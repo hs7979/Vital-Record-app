@@ -1,9 +1,32 @@
-<form action="/form" method="POST">
-    <input type="text" name="age" placeholder="age">
-    <input type="text" name="bloodtype" placeholder="blood group">
-    <input type="text" name="meddis" placeholder="medical history">
-    <label>Diabetic(yes/no)<input type="checkbox" name="diabetic" value="1"></label>
-    <input type="text" name="height" placeholder="height">
-    <input type="text" name="weight" placeholder="weight">
-    <input type="submit">
-</form>
+<%- include("partials/header") %>
+<h2>Enter Your Details:</h2>
+<div class="ui placeholder segment">
+    <form class="ui form" action="/form" method="POST">
+        <div class="inline field">
+            <label>Age:<input type="text" name="age" required></label>
+        </div>
+        <div class="inline field">
+            <label>Blood Group:<input type="text" name="bloodtype" required></label>
+        </div>
+        <div class="inline field">
+            <label>Medical History(if any):<input type="text" name="meddis" ></label>
+        </div>
+        <div class="inline field"> 
+            <label>Diabetic: </label>No
+            <div class="ui toggle checkbox">
+                <input type="checkbox" name="diabetic" value="1">
+                <label>Yes</label>
+            </div>
+        </div>
+        <div class="inline field">
+            <label>Height:<input type="text" name="height" placeholder="in meters" required></label>
+        </div>
+        <div class="inline field">
+            <label>Weight:<input type="text" name="weight" placeholder="in kgs" required></label>
+        </div>
+        <div class="inline field">
+            <input class="ui inverted olive button" type="submit">
+        </div>
+    </form>
+</div>
+<%- include("partials/footer") %>

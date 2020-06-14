@@ -1,31 +1,60 @@
-<h1>Show page</h1>
-<p> 
-    <%=det.owner.username%><br>
-    <%=det.age%><br>
-    <%=det.bloodtype%><br>
+<%- include("partials/header") %>
+
+<h1>User Details:</h1>
+
+    <p>Name: <%=det.owner.username%></p>
+    <p>Age: <%=det.age%></p>
+    <p>Blood Group: <%=det.bloodtype%></p>
     <% if(det.diabetic == false){ %> 
-    <p>Not Diabetic</p>
+    <p>Diabetic: NO</p>
     <%}else{%>
-        <p>diabetic</p>
+        <p>Diabetic: YES</p>
     <%}%>
-    <%= det.meddis%><br>
-    <%= det.height%><br>
-    <%= det.weight%><br>
-    <%= det.BMI%><br>
-</p>
-<hr>
-<a href="/daily">Proceed</a>
-
-
-<% det.daily.forEach(function(d){ %>
+    <p>Medical History: <%= det.meddis%></p>
+    <p>Height(in meters): <%= det.height%></p>
+    <p>Weight(in kgs): <%= det.weight%></p>
     <p>
-        <%= d.date.toDateString() %>
-        <%= d.BP.Systole%>
-        <%= d.BP.Diastole%>
-        <%= d.BP.Pulse%>
-        <%= d.o2%>
-        <%= d.glucose%>
-        <%= d.temp%>
-        <%= d.sleep%>
+        BMI(Body Mass Index): <%= det.BMI%>
+        <% if(det.BMI<="18.5"){ %>
+            <a class="ui red button">Underweight</a>
+        <%} else if(det.BMI>"18.5" && det.BMI<="25"){ %>
+            <a class="ui green button">Normal Weight</a>
+        <%} else if(det.BMI>"25" && det.BMI<="29.9"){ %>
+            <a class="ui yellow button">Overweight</a>
+        <%} else{ %>
+            <a class="ui red button">Obesity</a>
+        <%} %>
     </p>
-<% }) %>
+<hr>
+<a class="ui inverted purple button" href="/daily">Enter Daywise Details</a>
+
+<table class="ui celled table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Systole(mm/Hg)</th>
+            <th>Diastole(mm/Hg)</th>
+            <th>Pulse</th>
+            <th>Oxygen Saturation(%)</th>
+            <th>Sugar(mg/dl)</th>
+            <th>Temperature(F)</th>
+            <th>Sleep Hours</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% det.daily.forEach(function(d){ %>
+            <tr>
+                <td><%= d.date.toDateString() %></td>
+                <td><%= d.BP.Systole%></td>
+                <td><%= d.BP.Diastole%></td>
+                <td><%= d.BP.pulse%></td>
+                <td><%= d.o2%></td>
+                <td><%= d.glucose%></td>
+                <td><%= d.temp%></td>
+                <td><%= d.sleep%></td>
+            </tr>
+    <% }) %>
+    </tbody>
+</table>
+
+<%- include("partials/footer") %>

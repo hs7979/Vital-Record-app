@@ -1,16 +1,51 @@
-
-<h1> home page</h1>
-<h2>Login</h2>
-<form action="/login" method="Post">
-    <input type ="text" name="username" placeholder="Username">
-    <input type ="password" name="password" placeholder="password">
-    <input type="submit">
-</form>
-
-<hr>
-<h2>Sign Up</h2>
-<form action="/signup" method="Post">
-    <input type ="text" name="username" placeholder="Username">
-    <input type ="password" name="password" placeholder="password">
-    <input type="submit">
-</form>
+<%- include("partials/header") %>
+<div class="ui placeholder segment">
+    <div class="ui two column stackable center aligned grid">
+        <div class="ui vertical divider">OR</div>
+        <div class="middle aligned row">
+            <div class="column">
+                <form class="ui form" action="/login" method="Post">
+                    <h2>Login</h2>
+                    <p>(For Existing Users)</p>
+                    <div >
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type ="text" name="username" placeholder="Username"required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type ="password" name="password" placeholder="Password" required>
+                            </div>
+                        </div>
+                        <input class="ui inverted green button" type="submit">
+                    </div>
+                </form>
+            </div>
+            <div class="column">
+                <form class="ui form" action="/signup" method="Post">
+                    <h2>Sign Up</h2>
+                    <p>(For New User)</p>
+                    <div >
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type ="text" name="username" placeholder="Username"required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type ="password" name="password" placeholder="Password" required>
+                            </div>
+                        </div>
+                        <input class="ui inverted green button" type="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include("partials/footer") %>

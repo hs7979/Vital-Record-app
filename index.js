@@ -90,7 +90,7 @@ app.post("/daily",isLoggedIn,function(req,res){
         bp={
             Systole:req.body.BPsys,
             Diastole:req.body.BPdia,
-            Pulse:req.body.BPpul
+            pulse:req.body.BPpul
         },
         o=req.body.o2,
         temp=req.body.temp,
