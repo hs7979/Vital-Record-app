@@ -17,9 +17,9 @@
         BMI(Body Mass Index): <%= det.BMI%>
         <% if(det.BMI<="18.5"){ %>
             <a class="ui red button">Underweight</a>
-        <%} else if(det.BMI>"18.5" && det.BMI<="25"){ %>
+        <%} else if(det.BMI>"18.5" && det.BMI<="24.9"){ %>
             <a class="ui green button">Normal Weight</a>
-        <%} else if(det.BMI>"25" && det.BMI<="29.9"){ %>
+        <%} else if(det.BMI>"24.9" && det.BMI<="29.9"){ %>
             <a class="ui yellow button">Overweight</a>
         <%} else{ %>
             <a class="ui red button">Obesity</a>
@@ -56,6 +56,7 @@
     <% }) %>
     </tbody>
 </table>
+<div class="ui brown huge message">Body Vitals(Graphical Representation):</div>
 <div id="container" style="width: 500px; height: 400px;"></div>
 <div id="container1" style="width: 500px; height: 400px;"></div>
 <div id="container2" style="width: 500px; height: 400px;"></div>
