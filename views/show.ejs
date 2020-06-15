@@ -1,6 +1,6 @@
 <%- include("partials/header") %>
 
-<h1>User Details:</h1>
+<div class="ui teal huge message">User Details:</div>
 
     <p>Name: <%=det.owner.username%></p>
     <p>Age: <%=det.age%></p>
@@ -28,13 +28,13 @@
 <hr>
 <a class="ui inverted purple button" href="/daily">Enter Daywise Details</a>
 
-<table class="ui celled table">
+<table class="ui celled table" id="htmlTable" class="htmlTable">
     <thead>
         <tr>
             <th>Date</th>
-            <th>Systole(mm/Hg)</th>
-            <th>Diastole(mm/Hg)</th>
-            <th>Pulse</th>
+            <th>Systole(mmHg)</th>
+            <th>Diastole(mmHg)</th>
+            <th>Pulse(/min)</th>
             <th>Oxygen Saturation(%)</th>
             <th>Sugar(mg/dl)</th>
             <th>Temperature(F)</th>
@@ -56,29 +56,11 @@
     <% }) %>
     </tbody>
 </table>
-<div id="curve_chart" style="width: 900px; height: 500px"></div>
-<script type="text/javascript">
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-
-    function drawChart(){
-        var data = new google.visualization.DataTable();
-        data.addColumn('date','value');
-        data.addRows([
-            [0,2],[3,4]
-        ])
-        var options = {
-        hAxis: {
-          title: 'Date'
-        },
-        vAxis: {
-          title: 'Systole'
-        }
-      };
-
-      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-
-      chart.draw(data, options);
-    }
-</script>
+<div id="container" style="width: 500px; height: 400px;"></div>
+<div id="container1" style="width: 500px; height: 400px;"></div>
+<div id="container2" style="width: 500px; height: 400px;"></div>
+<div id="container3" style="width: 500px; height: 400px;"></div>
+<div id="container4" style="width: 500px; height: 400px;"></div>
+<script src="/asset2.js"></script>
+<br>
 <%- include("partials/footer") %>

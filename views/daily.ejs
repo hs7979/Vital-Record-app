@@ -1,16 +1,36 @@
 <%- include("partials/header") %>
 
-
-<form action="/daily" method="POST">
-    <input type="date" name="date"><br>
-    <input type="text" name="BPsys" placeholder="Systole"><br>
-    <input type="text" name="BPdia" placeholder="Diastole"><br>
-    <input type="text" name="BPpul" placeholder="Pulse"><br>
-    <input type="text" name="o2" placeholder="O2 saturation"><br>
-    <input type="text" name="temp" placeholder="temperature"><br>
-    <input type="text" name="glucose" placeholder="Sugar"><br>
-    <input type="time" name="sleepstart"><br>
-    <input type="time" name="sleepend"><br>
-    <input type="submit">
+<div class="ui pink huge message">Enter Day-wise Details</div>
+<form class="ui form" action="/daily" method="POST">
+    <div class="inline field">
+    <label>Date: <input type="date" name="date"></label>
+    </div>
+    <div class="inline field">
+        <label>Systole: <input type="text" name="BPsys" placeholder="mmHg"></label>
+    </div>
+    <div class="inline field">
+        <label>Diastole: <input type="text" name="BPdia" placeholder="mmHg"></label>
+    </div>
+    <div class="inline field">
+        <label>Pulse: <input type="text" name="BPpul" placeholder="/min"></label>
+    </div>
+    <div class="inline field">
+        <label>Oxygen Saturation: <input type="text" name="o2" placeholder="%"></label>
+    </div>
+    <div class="inline field">
+        <label>Temperature: <input type="text" name="temp" ></label>
+    </div>
+    <div class="inline field">
+        <label>Sugar: <input type="text" name="glucose" placeholder="mg/dl"></label>
+    </div>
+    <div class="inline field">
+        <label>Sleep start: <input type="time" name="sleepstart"></label>
+    </div>
+    <div class="inline field">
+        <label>Sleep End:<input type="time" name="sleepend"></label>
+    </div>
+    <input class="ui inverted orange button" type="submit">
 </form>
+<br>
+<br>
 <%- include("partials/footer") %>
