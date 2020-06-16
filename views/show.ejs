@@ -45,23 +45,28 @@
         <% det.daily.forEach(function(d){ %>
             <tr>
                 <td><%= d.date.toDateString() %></td>
-                <td><%= d.BP.Systole%></td>
-                <td><%= d.BP.Diastole%></td>
-                <td><%= d.BP.pulse%></td>
-                <td><%= d.o2%></td>
-                <td><%= d.glucose%></td>
-                <td><%= d.temp%></td>
+                <td id="sys"><%= d.BP.Systole%></td>
+                <td id="dias"><%= d.BP.Diastole%></td>
+                <td id="pul"><%= d.BP.pulse%></td>
+                <td id="o2"><%= d.o2%></td>
+                <td id="sug"><%= d.glucose%></td>
+                <td id="tem"><%= d.temp%></td>
                 <td><%= d.sleep%></td>
             </tr>
     <% }) %>
     </tbody>
 </table>
 <div class="ui brown huge message">Body Vitals(Graphical Representation):</div>
-<div id="container" style="width: 500px; height: 400px;"></div>
-<div id="container1" style="width: 500px; height: 400px;"></div>
-<div id="container2" style="width: 500px; height: 400px;"></div>
-<div id="container3" style="width: 500px; height: 400px;"></div>
-<div id="container4" style="width: 500px; height: 400px;"></div>
+<div id="container" style="width: 100%; height: 800px;"></div>
+<br>
+<div id="container1" style="width: 100%; height: 800px;"></div>
+<br>
+<div id="container2" style="width: 100%; height: 800px;"></div>
+<br>
+<div id="container3" style="width: 100%; height: 800px;"></div>
+<br>
+<div id="container4" style="width: 100%; height: 800px;"></div>
 <script src="/asset2.js"></script>
+<script src="/asset3.js"></script>
 <br>
 <%- include("partials/footer") %>

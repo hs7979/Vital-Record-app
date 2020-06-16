@@ -24,6 +24,8 @@ chart.title("Systole and Diastole(mmHg)");
 chart.getSeriesAt(0).name("Systole");
 chart.getSeriesAt(0).color("green");
 chart.getSeriesAt(1).name("Diastole");
+var xAxisLabels = chart.xAxis().labels();
+xAxisLabels.rotation(90)
 chart.legend(true);
 chart.draw();
 //Pulse
@@ -43,6 +45,8 @@ chart1.xScale().mode('continuous');
 chart1.title("Pulse(/min)");
 chart1.getSeriesAt(0).name("Pulse");
 chart1.getSeriesAt(0).color("red");
+var xAxisLabels = chart1.xAxis().labels();
+xAxisLabels.rotation(90)
 chart1.draw();
 //Oxygen Saturation
 var o=[];
@@ -60,6 +64,8 @@ chart2.container("container2");
 chart2.xScale().mode('continuous');
 chart2.title("Oxygen Saturation(%)");
 chart2.getSeriesAt(0).name("O2 Saturation");
+var xAxisLabels = chart2.xAxis().labels();
+xAxisLabels.rotation(90)
 chart2.draw();
 //Sugar
 var S=[];
@@ -78,6 +84,8 @@ chart3.xScale().mode('continuous');
 chart3.title("Sugar(mg/dl)");
 chart3.getSeriesAt(0).name("Sugar");
 chart3.getSeriesAt(0).color("Orange");
+var xAxisLabels = chart3.xAxis().labels();
+xAxisLabels.rotation(90)
 chart3.draw();
 //Temperature
 var T=[];
@@ -96,4 +104,6 @@ chart4.xScale().mode('continuous');
 chart4.title("Temperature(F)");
 chart4.getSeriesAt(0).name("Temperature");
 chart4.getSeriesAt(0).color("Brown");
+var xAxisLabels = chart4.xAxis().labels();
+xAxisLabels.rotation(90)
 chart4.draw();
